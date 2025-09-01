@@ -16,16 +16,16 @@ public class CardGame {
 	
 	private void initCards() {
 		for(String color: cardColors) {
-			cardValues.forEach(value -> cards.add(new Card(value, color)));
+			cardValues.forEach(value -> this.cards.add(new Card(value, color)));
 		}
 	}
 	
 	public void printCards() {
-		cards.forEach(card -> System.out.println(card));
+		this.cards.forEach(card -> System.out.println(card));
 	}
 	
 	public void shuffleCards() {
-		Collections.shuffle(cards);
+		Collections.shuffle(this.cards);
 	}
 	
 	public List<Card> getCards() {

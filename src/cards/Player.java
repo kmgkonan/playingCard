@@ -1,12 +1,12 @@
 package cards;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.Queue;
 
 public class Player {
 	private String name;
 	private Queue<Card> cards = new LinkedList<Card>();
-	private int score = 0;
 	
 	public Player(String name) {
 		this.name = name;
@@ -16,13 +16,26 @@ public class Player {
 		this.cards.add(card);
 	}
 	
-	public void incrementScore() {
-        score++;
-    }
+	public void addAllCards(Collection<Card> cards) {
+		this.cards.addAll(cards);
+	}
+	
+	public Queue<Card> getCards() {
+		return this.cards;
+	}
+	
+	
+	public int getNbCards() {
+		return this.cards.size();
+	}
+
+	public boolean hasCards() {
+		return !getCards().isEmpty();
+	}
 	
 	public void printCards() {
-		System.out.println("Les cartes de " + this.name + " : ");
-		cards.forEach(card -> System.out.println(" - " + card));
+		System.out.println(this.name + " possède " + this.cards.size() + " cartes.");
+		this.cards.forEach(card -> System.out.println(" - " + card));
 	}
 	
 	public Card playCard() {
@@ -31,9 +44,5 @@ public class Player {
 	
 	public String getName() {
 		return this.name;
-	}
-	
-	public int getSore() {
-		return this.score;
 	}
 }
